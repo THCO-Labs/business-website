@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Northwind Studio">
+  <rect width="1200" height="630" fill="#0b1220"/>
+  <rect x="72" y="72" width="72" height="72" rx="16" fill="#2f6fd0"/>
+  <path d="M96 128V88h9.7l20.6 26V88H136v40h-9.7l-20.6-26v26H96z" fill="#fff"/>
+  <text x="72" y="330" fill="#ffffff" font-family="system-ui, sans-serif" font-size="76" font-weight="600">Northwind Studio</text>
+  <text x="72" y="404" fill="#93a4bd" font-family="system-ui, sans-serif" font-size="36">Considered work, shipped on time</text>
+</svg>

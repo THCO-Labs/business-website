@@ -1,0 +1,12 @@
+{
+  "name": "Northwind Studio",
+  "nameParts": {
+    "lead": "Northwind",
+    "accent": "Studio"
+  },
+  "description": "A design and engineering studio that ships considered digital products for growing businesses.",
+  "tagline": "Considered work, shipped on time",
+  "url": "https://northwind-studio.example.com",
+  "logoPath": null,
+  "theme": "light"
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "site-content",
+  "route": "/",
+  "title": "Site content",
+  "description": "The services, posts and pricing plans the site renders. This is copy and data rather than layout, and several pages read from it, so it is edited in one place.",
+  "sourceEntry": "app/lib/content.ts",
+  "access": "public",
+  "dataDependencies": [],
+  "componentDependencies": [],
+  "editableSections": [
+    "content.services",
+    "content.posts",
+    "content.plans"
+  ],
+  "allowedOperations": [
+    "UPDATE_CONTENT",
+    "UPDATE_DESIGN_TOKEN",
+    "CONFIGURE_COMPONENT"
+  ],
+  "featureSlots": [],
+  "preview": {
+    "url": "/",
+    "fixture": "page-manifests/site-content/fixtures.json"
+  },
+  "verification": [
+    "content-loads"
+  ],
+  "protectedDependencies": []
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "service-detail",
+  "route": "/services/:slug",
+  "title": "Service detail",
+  "description": "Detail page for a single service: what it involves, what the client receives, and the starting price.",
+  "sourceEntry": "app/routes/service-detail.tsx",
+  "access": "public",
+  "dataDependencies": [
+    "services"
+  ],
+  "componentDependencies": [],
+  "editableSections": [
+    "service-detail.content",
+    "design.tokens",
+    "site.brand"
+  ],
+  "allowedOperations": [
+    "UPDATE_CONTENT",
+    "UPDATE_DESIGN_TOKEN",
+    "UPDATE_ASSET",
+    "CONFIGURE_COMPONENT"
+  ],
+  "featureSlots": [],
+  "preview": {
+    "url": "/services/web-engineering"
+  },
+  "verification": [
+    "service-detail-renders",
+    "unknown-slug-returns-404",
+    "service-schema-emitted"
+  ],
+  "protectedDependencies": [
+    "app/components/ui",
+    "app/lib/seo.ts",
+    "app/routes.ts"
+  ],
+  "routeParams": {
+    "slug": "web-engineering"
+  }
+}

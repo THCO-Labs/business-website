@@ -1,0 +1,4 @@
+{
+  "description": "Section blocks that several pages reuse — the call to action, the FAQ, the post list and the service grid. They are edited here because a change to one is a change everywhere it appears.",
+  "route": "/"
+}

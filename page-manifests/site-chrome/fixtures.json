@@ -1,0 +1,4 @@
+{
+  "description": "The header, footer and document shell that frame every page. Editing them here changes all of them at once, which is what site chrome is — that is why they are edited from here rather than from any single page.",
+  "route": "/"
+}

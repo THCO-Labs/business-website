@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "about",
+  "route": "/about",
+  "title": "About",
+  "description": "Studio background, working principles and the team, establishing credibility before an enquiry.",
+  "sourceEntry": "app/routes/about.tsx",
+  "access": "public",
+  "dataDependencies": [],
+  "componentDependencies": [],
+  "editableSections": [
+    "design.tokens",
+    "section.principles",
+    "section.team",
+    "site.brand"
+  ],
+  "allowedOperations": [
+    "UPDATE_CONTENT",
+    "UPDATE_DESIGN_TOKEN",
+    "UPDATE_ASSET",
+    "CONFIGURE_COMPONENT",
+    "REORDER_SECTIONS",
+    "CREATE_COMPONENT_VARIANT"
+  ],
+  "featureSlots": [],
+  "preview": {
+    "url": "/about"
+  },
+  "verification": [
+    "about-renders",
+    "team-list-populated"
+  ],
+  "protectedDependencies": [
+    "app/components/ui",
+    "app/lib/seo.ts",
+    "app/routes.ts"
+  ]
+}

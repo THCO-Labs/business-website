@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "shared-sections",
+  "route": "/",
+  "title": "Shared page sections",
+  "description": "Section blocks that several pages reuse — the call to action, the FAQ, the post list and the service grid. They are edited here because a change to one is a change everywhere it appears.",
+  "sourceEntry": "app/components/sections/CallToAction.tsx",
+  "access": "public",
+  "dataDependencies": [],
+  "componentDependencies": [
+    "app/components/sections/Faq.tsx",
+    "app/components/sections/PostList.tsx",
+    "app/components/sections/ServiceGrid.tsx"
+  ],
+  "editableSections": [
+    "section.cta",
+    "section.faq",
+    "section.posts",
+    "section.services"
+  ],
+  "allowedOperations": [
+    "UPDATE_CONTENT",
+    "UPDATE_DESIGN_TOKEN",
+    "CONFIGURE_COMPONENT"
+  ],
+  "featureSlots": [],
+  "preview": {
+    "url": "/",
+    "fixture": "page-manifests/shared-sections/fixtures.json"
+  },
+  "verification": [
+    "cta-renders"
+  ],
+  "protectedDependencies": []
+}

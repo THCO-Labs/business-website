@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "blog",
+  "route": "/blog",
+  "title": "Blog index",
+  "description": "Reverse-chronological index of published posts.",
+  "sourceEntry": "app/routes/blog.tsx",
+  "access": "public",
+  "dataDependencies": [
+    "posts"
+  ],
+  "componentDependencies": [],
+  "editableSections": [
+    "blog.content",
+    "design.tokens",
+    "site.brand"
+  ],
+  "allowedOperations": [
+    "UPDATE_CONTENT",
+    "UPDATE_DESIGN_TOKEN",
+    "UPDATE_ASSET",
+    "CONFIGURE_COMPONENT",
+    "REORDER_SECTIONS",
+    "CREATE_COMPONENT_VARIANT"
+  ],
+  "featureSlots": [],
+  "preview": {
+    "url": "/blog"
+  },
+  "verification": [
+    "blog-index-renders",
+    "posts-sorted-newest-first"
+  ],
+  "protectedDependencies": [
+    "app/components/ui",
+    "app/lib/seo.ts",
+    "app/routes.ts"
+  ]
+}

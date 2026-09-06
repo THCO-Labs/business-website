@@ -1,0 +1,4 @@
+{
+  "description": "The services, posts and pricing plans the site renders. This is copy and data rather than layout, and several pages read from it, so it is edited in one place.",
+  "route": "/"
+}

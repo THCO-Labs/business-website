@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "home",
+  "route": "/",
+  "title": "Homepage",
+  "description": "Public landing page introducing the studio, its services, recent writing and the primary enquiry call to action.",
+  "sourceEntry": "app/routes/home.tsx",
+  "access": "public",
+  "dataDependencies": [
+    "services",
+    "posts"
+  ],
+  "componentDependencies": [
+    "app/components/sections/Hero.tsx"
+  ],
+  "editableSections": [
+    "home.content",
+    "design.tokens",
+    "section.hero",
+    "site.brand"
+  ],
+  "allowedOperations": [
+    "UPDATE_CONTENT",
+    "UPDATE_DESIGN_TOKEN",
+    "UPDATE_ASSET",
+    "CONFIGURE_COMPONENT",
+    "REORDER_SECTIONS",
+    "CREATE_COMPONENT_VARIANT"
+  ],
+  "featureSlots": [],
+  "preview": {
+    "url": "/"
+  },
+  "verification": [
+    "homepage-renders",
+    "hero-cta-links-to-contact",
+    "single-h1-present"
+  ],
+  "protectedDependencies": [
+    "app/components/ui",
+    "app/lib/seo.ts",
+    "app/routes.ts"
+  ]
+}

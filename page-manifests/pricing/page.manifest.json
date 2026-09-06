@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "pricing",
+  "route": "/pricing",
+  "title": "Pricing",
+  "description": "Published engagement models and prices, with the pricing questions clients ask most often.",
+  "sourceEntry": "app/routes/pricing.tsx",
+  "access": "public",
+  "dataDependencies": [
+    "plans"
+  ],
+  "componentDependencies": [
+    "app/components/sections/PricingTable.tsx"
+  ],
+  "editableSections": [
+    "design.tokens",
+    "section.pricing",
+    "site.brand"
+  ],
+  "allowedOperations": [
+    "UPDATE_CONTENT",
+    "UPDATE_DESIGN_TOKEN",
+    "UPDATE_ASSET",
+    "CONFIGURE_COMPONENT",
+    "REORDER_SECTIONS",
+    "CREATE_COMPONENT_VARIANT"
+  ],
+  "featureSlots": [],
+  "preview": {
+    "url": "/pricing"
+  },
+  "verification": [
+    "pricing-renders",
+    "every-plan-has-a-cta"
+  ],
+  "protectedDependencies": [
+    "app/components/ui",
+    "app/lib/seo.ts",
+    "app/routes.ts"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "services",
+  "route": "/services",
+  "title": "Services index",
+  "description": "Index of every service the studio offers, each linking through to its own detail page.",
+  "sourceEntry": "app/routes/services.tsx",
+  "access": "public",
+  "dataDependencies": [
+    "services"
+  ],
+  "componentDependencies": [],
+  "editableSections": [
+    "services.content",
+    "design.tokens",
+    "site.brand"
+  ],
+  "allowedOperations": [
+    "UPDATE_CONTENT",
+    "UPDATE_DESIGN_TOKEN",
+    "UPDATE_ASSET",
+    "CONFIGURE_COMPONENT",
+    "REORDER_SECTIONS",
+    "CREATE_COMPONENT_VARIANT"
+  ],
+  "featureSlots": [],
+  "preview": {
+    "url": "/services"
+  },
+  "verification": [
+    "services-index-renders",
+    "every-service-links-to-detail"
+  ],
+  "protectedDependencies": [
+    "app/components/ui",
+    "app/lib/seo.ts",
+    "app/routes.ts"
+  ]
+}

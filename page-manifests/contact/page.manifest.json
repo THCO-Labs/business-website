@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "contact",
+  "route": "/contact",
+  "title": "Contact",
+  "description": "Enquiry form posting back to the same route, alongside the studio contact details.",
+  "sourceEntry": "app/routes/contact.tsx",
+  "access": "public",
+  "dataDependencies": [],
+  "componentDependencies": [],
+  "editableSections": [
+    "design.tokens",
+    "section.contact-form",
+    "site.brand"
+  ],
+  "allowedOperations": [
+    "UPDATE_CONTENT",
+    "UPDATE_DESIGN_TOKEN",
+    "UPDATE_ASSET",
+    "CONFIGURE_COMPONENT"
+  ],
+  "featureSlots": [],
+  "preview": {
+    "url": "/contact"
+  },
+  "verification": [
+    "contact-renders",
+    "empty-submission-shows-errors",
+    "valid-submission-confirms"
+  ],
+  "protectedDependencies": [
+    "app/components/ui",
+    "app/lib/seo.ts",
+    "app/routes.ts"
+  ]
+}

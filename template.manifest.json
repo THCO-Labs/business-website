@@ -1,0 +1,545 @@
+{
+  "schemaVersion": 3,
+  "templateSource": "business-website",
+  "templateVersion": "1.0.0",
+  "framework": "react-router-7",
+  "runtime": {
+    "packageManager": "npm",
+    "install": "npm install",
+    "dev": {
+      "command": "npm run dev -- --host 0.0.0.0",
+      "port": 5173,
+      "readyPath": "/"
+    },
+    "entryPoint": "app/root.tsx",
+    "typecheck": "npm run typecheck",
+    "build": "npm run build",
+    "start": "npm run start",
+    "healthPath": "/api/health"
+  },
+  "database": {
+    "required": false,
+    "extensions": []
+  },
+  "branding": {
+    "config": "app/config/brand.generated.json",
+    "assets": "public"
+  },
+  "env": {
+    "required": []
+  },
+  "protectedPaths": [
+    "app/components/ui",
+    "app/lib/utils.ts",
+    "app/lib/seo.ts",
+    "app/routes.ts",
+    "react-router.config.ts",
+    "vite.config.ts",
+    "tsconfig.json",
+    "components.json",
+    "app/components/sections/Section.tsx",
+    "app/components/site/ThemeToggle.tsx"
+  ],
+  "sharedModules": [
+    "app/lib/content.ts",
+    "app/config/site.ts",
+    "app/components/sections/Section.tsx"
+  ],
+  "globalConfig": [
+    "app/app.css",
+    "app/config/brand.generated.json"
+  ],
+  "editableSurfaces": [
+    {
+      "id": "site.brand",
+      "kind": "CONFIG",
+      "label": "Brand identity",
+      "sourcePath": "app/config/brand.generated.json",
+      "operations": [
+        "UPDATE_CONTENT",
+        "UPDATE_ASSET"
+      ],
+      "fields": [
+        {
+          "path": "name",
+          "label": "Business name",
+          "type": "text"
+        },
+        {
+          "path": "nameParts.lead",
+          "label": "Name, first word",
+          "type": "text"
+        },
+        {
+          "path": "nameParts.accent",
+          "label": "Name, second word",
+          "type": "text"
+        },
+        {
+          "path": "description",
+          "label": "What the business does",
+          "type": "rich_text"
+        },
+        {
+          "path": "tagline",
+          "label": "Tagline",
+          "type": "text"
+        },
+        {
+          "path": "url",
+          "label": "Public site URL",
+          "type": "text"
+        },
+        {
+          "path": "logoPath",
+          "label": "Logo",
+          "type": "asset"
+        }
+      ]
+    },
+    {
+      "id": "site.navigation",
+      "kind": "CONFIG",
+      "label": "Navigation and contact details",
+      "sourcePath": "app/config/site.ts",
+      "operations": [
+        "UPDATE_CONTENT",
+        "REORDER_SECTIONS",
+        "CHANGE_VISIBILITY"
+      ]
+    },
+    {
+      "id": "design.tokens",
+      "kind": "DESIGN",
+      "label": "Colour, type and radius",
+      "sourcePath": "app/app.css",
+      "operations": [
+        "UPDATE_DESIGN_TOKEN"
+      ],
+      "fields": [
+        {
+          "path": "--brand",
+          "label": "Brand colour",
+          "type": "color"
+        },
+        {
+          "path": "--brand-foreground",
+          "label": "Text on brand colour",
+          "type": "color"
+        },
+        {
+          "path": "--background",
+          "label": "Page background",
+          "type": "color"
+        },
+        {
+          "path": "--foreground",
+          "label": "Body text",
+          "type": "color"
+        },
+        {
+          "path": "--radius",
+          "label": "Corner radius",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "site.header",
+      "kind": "COMPONENT",
+      "label": "Site header",
+      "sourcePath": "app/components/site/Header.tsx",
+      "operations": [
+        "UPDATE_CONTENT",
+        "UPDATE_DESIGN_TOKEN",
+        "CONFIGURE_COMPONENT",
+        "CREATE_COMPONENT_VARIANT"
+      ]
+    },
+    {
+      "id": "site.footer",
+      "kind": "COMPONENT",
+      "label": "Site footer",
+      "sourcePath": "app/components/site/Footer.tsx",
+      "operations": [
+        "UPDATE_CONTENT",
+        "UPDATE_DESIGN_TOKEN",
+        "CONFIGURE_COMPONENT",
+        "CREATE_COMPONENT_VARIANT"
+      ]
+    },
+    {
+      "id": "section.hero",
+      "kind": "COMPONENT",
+      "label": "Hero",
+      "page": "/",
+      "sourcePath": "app/components/sections/Hero.tsx",
+      "operations": [
+        "UPDATE_CONTENT",
+        "UPDATE_DESIGN_TOKEN",
+        "UPDATE_ASSET",
+        "CONFIGURE_COMPONENT",
+        "CREATE_COMPONENT_VARIANT"
+      ],
+      "fields": [
+        {
+          "path": "eyebrow",
+          "label": "Eyebrow",
+          "type": "text"
+        },
+        {
+          "path": "title",
+          "label": "Headline",
+          "type": "text"
+        },
+        {
+          "path": "description",
+          "label": "Supporting paragraph",
+          "type": "rich_text"
+        }
+      ]
+    },
+    {
+      "id": "section.services",
+      "kind": "COMPONENT",
+      "label": "Services grid",
+      "sourcePath": "app/components/sections/ServiceGrid.tsx",
+      "operations": [
+        "UPDATE_CONTENT",
+        "UPDATE_DESIGN_TOKEN",
+        "CONFIGURE_COMPONENT",
+        "CREATE_COMPONENT_VARIANT"
+      ]
+    },
+    {
+      "id": "section.pricing",
+      "kind": "COMPONENT",
+      "label": "Pricing table",
+      "page": "/pricing",
+      "sourcePath": "app/components/sections/PricingTable.tsx",
+      "operations": [
+        "UPDATE_CONTENT",
+        "UPDATE_DESIGN_TOKEN",
+        "CONFIGURE_COMPONENT",
+        "CREATE_COMPONENT_VARIANT"
+      ]
+    },
+    {
+      "id": "section.posts",
+      "kind": "COMPONENT",
+      "label": "Post list",
+      "sourcePath": "app/components/sections/PostList.tsx",
+      "operations": [
+        "UPDATE_CONTENT",
+        "UPDATE_DESIGN_TOKEN",
+        "CONFIGURE_COMPONENT",
+        "CREATE_COMPONENT_VARIANT"
+      ]
+    },
+    {
+      "id": "section.faq",
+      "kind": "COMPONENT",
+      "label": "Frequently asked questions",
+      "sourcePath": "app/components/sections/Faq.tsx",
+      "operations": [
+        "UPDATE_CONTENT",
+        "REORDER_SECTIONS",
+        "CONFIGURE_COMPONENT"
+      ]
+    },
+    {
+      "id": "section.cta",
+      "kind": "COMPONENT",
+      "label": "Call to action band",
+      "sourcePath": "app/components/sections/CallToAction.tsx",
+      "operations": [
+        "UPDATE_CONTENT",
+        "UPDATE_DESIGN_TOKEN",
+        "CONFIGURE_COMPONENT",
+        "CREATE_COMPONENT_VARIANT"
+      ],
+      "fields": [
+        {
+          "path": "title",
+          "label": "Heading",
+          "type": "text"
+        },
+        {
+          "path": "description",
+          "label": "Supporting text",
+          "type": "rich_text"
+        },
+        {
+          "path": "action.label",
+          "label": "Button label",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "section.principles",
+      "kind": "CONTENT",
+      "label": "Working principles",
+      "page": "/about",
+      "sourcePath": "app/routes/about.tsx",
+      "selector": "principles",
+      "operations": [
+        "UPDATE_CONTENT",
+        "REORDER_SECTIONS"
+      ]
+    },
+    {
+      "id": "section.team",
+      "kind": "CONTENT",
+      "label": "Team members",
+      "page": "/about",
+      "sourcePath": "app/routes/about.tsx",
+      "selector": "team",
+      "operations": [
+        "UPDATE_CONTENT",
+        "UPDATE_ASSET",
+        "REORDER_SECTIONS"
+      ]
+    },
+    {
+      "id": "section.contact-form",
+      "kind": "COMPONENT",
+      "label": "Enquiry form",
+      "page": "/contact",
+      "sourcePath": "app/routes/contact.tsx",
+      "operations": [
+        "UPDATE_CONTENT",
+        "CONFIGURE_COMPONENT"
+      ]
+    },
+    {
+      "id": "content.services",
+      "kind": "CONTENT",
+      "label": "Services",
+      "sourcePath": "app/lib/content.ts",
+      "selector": "services",
+      "operations": [
+        "UPDATE_CONTENT",
+        "REORDER_SECTIONS"
+      ],
+      "fields": [
+        {
+          "path": "title",
+          "label": "Service name",
+          "type": "text"
+        },
+        {
+          "path": "summary",
+          "label": "One-line summary",
+          "type": "text"
+        },
+        {
+          "path": "description",
+          "label": "Full description",
+          "type": "rich_text"
+        },
+        {
+          "path": "startingAt",
+          "label": "Starting price",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "content.posts",
+      "kind": "CONTENT",
+      "label": "Blog posts",
+      "sourcePath": "app/lib/content.ts",
+      "selector": "posts",
+      "operations": [
+        "UPDATE_CONTENT",
+        "REORDER_SECTIONS"
+      ],
+      "fields": [
+        {
+          "path": "title",
+          "label": "Post title",
+          "type": "text"
+        },
+        {
+          "path": "excerpt",
+          "label": "Excerpt",
+          "type": "rich_text"
+        },
+        {
+          "path": "body",
+          "label": "Body paragraphs",
+          "type": "rich_text"
+        },
+        {
+          "path": "author",
+          "label": "Author",
+          "type": "text"
+        },
+        {
+          "path": "publishedAt",
+          "label": "Published date",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "content.plans",
+      "kind": "CONTENT",
+      "label": "Pricing plans",
+      "sourcePath": "app/lib/content.ts",
+      "selector": "plans",
+      "operations": [
+        "UPDATE_CONTENT",
+        "REORDER_SECTIONS"
+      ],
+      "fields": [
+        {
+          "path": "name",
+          "label": "Plan name",
+          "type": "text"
+        },
+        {
+          "path": "price",
+          "label": "Price",
+          "type": "text"
+        },
+        {
+          "path": "cadence",
+          "label": "Billing cadence",
+          "type": "text"
+        },
+        {
+          "path": "summary",
+          "label": "Summary",
+          "type": "text"
+        },
+        {
+          "path": "features",
+          "label": "Included features",
+          "type": "json"
+        },
+        {
+          "path": "highlighted",
+          "label": "Highlight this plan",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "home.content",
+      "kind": "COMPONENT",
+      "label": "Homepage content",
+      "page": "/",
+      "sourcePath": "app/routes/home.tsx",
+      "operations": [
+        "UPDATE_CONTENT",
+        "UPDATE_DESIGN_TOKEN",
+        "CONFIGURE_COMPONENT"
+      ]
+    },
+    {
+      "id": "services.content",
+      "kind": "COMPONENT",
+      "label": "Services page",
+      "page": "/services",
+      "sourcePath": "app/routes/services.tsx",
+      "operations": [
+        "UPDATE_CONTENT",
+        "UPDATE_DESIGN_TOKEN",
+        "CONFIGURE_COMPONENT"
+      ]
+    },
+    {
+      "id": "service-detail.content",
+      "kind": "COMPONENT",
+      "label": "Service detail page",
+      "page": "/services/:slug",
+      "sourcePath": "app/routes/service-detail.tsx",
+      "operations": [
+        "UPDATE_CONTENT",
+        "UPDATE_DESIGN_TOKEN",
+        "CONFIGURE_COMPONENT"
+      ]
+    },
+    {
+      "id": "blog.content",
+      "kind": "COMPONENT",
+      "label": "Blog index",
+      "page": "/blog",
+      "sourcePath": "app/routes/blog.tsx",
+      "operations": [
+        "UPDATE_CONTENT",
+        "UPDATE_DESIGN_TOKEN",
+        "CONFIGURE_COMPONENT"
+      ]
+    },
+    {
+      "id": "blog-post.content",
+      "kind": "COMPONENT",
+      "label": "Blog post page",
+      "page": "/blog/:slug",
+      "sourcePath": "app/routes/blog-post.tsx",
+      "operations": [
+        "UPDATE_CONTENT",
+        "UPDATE_DESIGN_TOKEN",
+        "CONFIGURE_COMPONENT"
+      ]
+    }
+  ],
+  "featureSlots": [],
+  "pageManifestDirectory": "page-manifests",
+  "pages": [
+    {
+      "id": "home",
+      "manifest": "page-manifests/home/page.manifest.json"
+    },
+    {
+      "id": "about",
+      "manifest": "page-manifests/about/page.manifest.json"
+    },
+    {
+      "id": "services",
+      "manifest": "page-manifests/services/page.manifest.json"
+    },
+    {
+      "id": "service-detail",
+      "manifest": "page-manifests/service-detail/page.manifest.json"
+    },
+    {
+      "id": "pricing",
+      "manifest": "page-manifests/pricing/page.manifest.json"
+    },
+    {
+      "id": "blog",
+      "manifest": "page-manifests/blog/page.manifest.json"
+    },
+    {
+      "id": "blog-post",
+      "manifest": "page-manifests/blog-post/page.manifest.json"
+    },
+    {
+      "id": "contact",
+      "manifest": "page-manifests/contact/page.manifest.json"
+    },
+    {
+      "id": "site-chrome",
+      "manifest": "page-manifests/site-chrome/page.manifest.json"
+    },
+    {
+      "id": "shared-sections",
+      "manifest": "page-manifests/shared-sections/page.manifest.json"
+    },
+    {
+      "id": "site-content",
+      "manifest": "page-manifests/site-content/page.manifest.json"
+    }
+  ],
+  "verification": [
+    "typecheck-passes",
+    "build-succeeds",
+    "health-endpoint-returns-ok",
+    "sitemap-lists-every-page",
+    "each-page-has-a-unique-title-and-canonical"
+  ]
+}

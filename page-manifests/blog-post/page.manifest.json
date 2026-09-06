@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "blog-post",
+  "route": "/blog/:slug",
+  "title": "Blog post",
+  "description": "A single article, with author, publication date and article structured data.",
+  "sourceEntry": "app/routes/blog-post.tsx",
+  "access": "public",
+  "dataDependencies": [
+    "posts"
+  ],
+  "componentDependencies": [],
+  "editableSections": [
+    "blog-post.content",
+    "design.tokens",
+    "site.brand"
+  ],
+  "allowedOperations": [
+    "UPDATE_CONTENT",
+    "UPDATE_DESIGN_TOKEN",
+    "UPDATE_ASSET",
+    "CONFIGURE_COMPONENT"
+  ],
+  "featureSlots": [],
+  "preview": {
+    "url": "/blog/server-rendering-still-matters"
+  },
+  "verification": [
+    "blog-post-renders",
+    "unknown-slug-returns-404",
+    "article-schema-emitted"
+  ],
+  "protectedDependencies": [
+    "app/components/ui",
+    "app/lib/seo.ts",
+    "app/routes.ts"
+  ],
+  "routeParams": {
+    "slug": "server-rendering-still-matters"
+  }
+}
