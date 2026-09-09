@@ -1,0 +1,19 @@
+{
+  "eyebrow": "How we work",
+  "title": "Small team, short feedback loops, no surprises",
+  "description": "You work with the people doing the work. There is no account layer between you and the team, and nothing is presented for the first time at the end.",
+  "items": [
+    {
+      "term": "Scoped before started",
+      "detail": "Every engagement begins with a written scope and a fixed price for that scope. Changes are re-scoped in the open, not absorbed silently."
+    },
+    {
+      "term": "Shipped weekly",
+      "detail": "Work goes to a preview environment every week. You see progress on the real thing rather than in a status document."
+    },
+    {
+      "term": "Handed over properly",
+      "detail": "You get documentation, a walkthrough and thirty days of support. The goal is that you do not need us afterwards."
+    }
+  ]
+}

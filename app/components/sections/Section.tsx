@@ -15,15 +15,23 @@ export function Section({
   width = 'default',
   tone = 'default',
   as: Tag = 'section',
+  // The platform reads this to know which section a click landed in. It is a
+  // plain attribute rather than anything React-specific on purpose: React 19
+  // removed the fiber source information such tooling used to rely on.
+  'data-section': dataSection,
 }: {
   children: ReactNode;
   className?: string;
   width?: 'default' | 'narrow' | 'wide';
   tone?: 'default' | 'muted';
   as?: 'section' | 'div' | 'article';
+  'data-section'?: string;
 }) {
   return (
-    <Tag className={cn(tone === 'muted' && 'bg-muted/40', 'border-b last:border-b-0')}>
+    <Tag
+      data-section={dataSection}
+      className={cn(tone === 'muted' && 'bg-muted/40', 'border-b last:border-b-0')}
+    >
       <div
         className={cn(
           'mx-auto px-6 py-16 sm:py-20',

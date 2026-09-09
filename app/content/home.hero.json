@@ -1,0 +1,14 @@
+{
+  "variant": "centered",
+  "title": "Design and engineering for businesses that need the work to actually ship",
+  "primaryAction": {
+    "label": "Start a project",
+    "to": "/contact"
+  },
+  "secondaryAction": {
+    "label": "See our services",
+    "to": "/services"
+  },
+  "eyebrow": null,
+  "description": null
+}

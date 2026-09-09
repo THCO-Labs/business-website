@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "templateSource": "business-website",
-  "templateVersion": "1.0.0",
+  "templateVersion": "1.1.0",
   "framework": "react-router-7",
   "runtime": {
     "packageManager": "npm",
@@ -170,32 +170,124 @@
     },
     {
       "id": "section.hero",
-      "kind": "COMPONENT",
+      "kind": "SECTION",
       "label": "Hero",
       "page": "/",
       "sourcePath": "app/components/sections/Hero.tsx",
+      "contentPath": "app/content/home.hero.json",
+      "selector": "[data-section=\"section.hero\"]",
       "operations": [
         "UPDATE_CONTENT",
-        "UPDATE_DESIGN_TOKEN",
-        "UPDATE_ASSET",
-        "CONFIGURE_COMPONENT",
-        "CREATE_COMPONENT_VARIANT"
+        "REGENERATE_CONTENT"
+      ],
+      "variants": [
+        {
+          "id": "centered",
+          "label": "Centered",
+          "description": "Big centred headline on a plain ground. Calm and corporate; needs no imagery."
+        }
       ],
       "fields": [
         {
           "path": "eyebrow",
           "label": "Eyebrow",
-          "type": "text"
+          "type": "text",
+          "maxLength": 40
         },
         {
           "path": "title",
           "label": "Headline",
-          "type": "text"
+          "type": "text",
+          "maxLength": 90,
+          "required": true
         },
         {
           "path": "description",
           "label": "Supporting paragraph",
-          "type": "rich_text"
+          "type": "rich_text",
+          "maxLength": 240
+        },
+        {
+          "path": "primaryAction.label",
+          "label": "Primary button",
+          "type": "text",
+          "maxLength": 24,
+          "required": true
+        },
+        {
+          "path": "primaryAction.to",
+          "label": "Primary link",
+          "type": "text",
+          "generative": false
+        },
+        {
+          "path": "secondaryAction.label",
+          "label": "Secondary button",
+          "type": "text",
+          "maxLength": 24
+        },
+        {
+          "path": "secondaryAction.to",
+          "label": "Secondary link",
+          "type": "text",
+          "generative": false
+        }
+      ]
+    },
+    {
+      "id": "section.approach",
+      "kind": "SECTION",
+      "label": "How we work",
+      "page": "/",
+      "sourcePath": "app/routes/home.tsx",
+      "contentPath": "app/content/home.approach.json",
+      "selector": "[data-section=\"section.approach\"]",
+      "operations": [
+        "UPDATE_CONTENT",
+        "REGENERATE_CONTENT"
+      ],
+      "fields": [
+        {
+          "path": "eyebrow",
+          "label": "Eyebrow",
+          "type": "text",
+          "maxLength": 40
+        },
+        {
+          "path": "title",
+          "label": "Heading",
+          "type": "text",
+          "maxLength": 90,
+          "required": true
+        },
+        {
+          "path": "description",
+          "label": "Supporting paragraph",
+          "type": "rich_text",
+          "maxLength": 260
+        },
+        {
+          "path": "items",
+          "label": "Points",
+          "type": "list",
+          "min": 2,
+          "max": 4,
+          "itemFields": [
+            {
+              "path": "term",
+              "label": "Title",
+              "type": "text",
+              "maxLength": 48,
+              "required": true
+            },
+            {
+              "path": "detail",
+              "label": "Detail",
+              "type": "rich_text",
+              "maxLength": 220,
+              "required": true
+            }
+          ]
         }
       ]
     },
@@ -238,41 +330,94 @@
     },
     {
       "id": "section.faq",
-      "kind": "COMPONENT",
-      "label": "Frequently asked questions",
-      "sourcePath": "app/components/sections/Faq.tsx",
+      "kind": "SECTION",
+      "label": "FAQ",
+      "page": "/",
+      "sourcePath": "app/routes/home.tsx",
+      "contentPath": "app/content/home.faq.json",
+      "selector": "[data-section=\"section.faq\"]",
       "operations": [
         "UPDATE_CONTENT",
-        "REORDER_SECTIONS",
-        "CONFIGURE_COMPONENT"
+        "REGENERATE_CONTENT"
+      ],
+      "fields": [
+        {
+          "path": "eyebrow",
+          "label": "Eyebrow",
+          "type": "text",
+          "maxLength": 40
+        },
+        {
+          "path": "title",
+          "label": "Heading",
+          "type": "text",
+          "maxLength": 90,
+          "required": true
+        },
+        {
+          "path": "entries",
+          "label": "Questions",
+          "type": "list",
+          "min": 2,
+          "max": 8,
+          "itemFields": [
+            {
+              "path": "question",
+              "label": "Question",
+              "type": "text",
+              "maxLength": 120,
+              "required": true
+            },
+            {
+              "path": "answer",
+              "label": "Answer",
+              "type": "rich_text",
+              "maxLength": 400,
+              "required": true
+            }
+          ]
+        }
       ]
     },
     {
       "id": "section.cta",
-      "kind": "COMPONENT",
-      "label": "Call to action band",
+      "kind": "SECTION",
+      "label": "Call to action",
+      "page": "/",
       "sourcePath": "app/components/sections/CallToAction.tsx",
+      "contentPath": "app/content/home.cta.json",
+      "selector": "[data-section=\"section.cta\"]",
       "operations": [
         "UPDATE_CONTENT",
-        "UPDATE_DESIGN_TOKEN",
-        "CONFIGURE_COMPONENT",
-        "CREATE_COMPONENT_VARIANT"
+        "REGENERATE_CONTENT"
       ],
       "fields": [
         {
           "path": "title",
           "label": "Heading",
-          "type": "text"
+          "type": "text",
+          "maxLength": 70,
+          "required": true
         },
         {
           "path": "description",
-          "label": "Supporting text",
-          "type": "rich_text"
+          "label": "Supporting paragraph",
+          "type": "rich_text",
+          "maxLength": 200,
+          "required": true
         },
         {
           "path": "action.label",
-          "label": "Button label",
-          "type": "text"
+          "label": "Button",
+          "type": "text",
+          "maxLength": 28,
+          "required": true
+        },
+        {
+          "path": "action.to",
+          "label": "Button link",
+          "type": "text",
+          "generative": false
         }
       ]
     },

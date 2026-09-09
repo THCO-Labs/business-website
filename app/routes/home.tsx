@@ -9,6 +9,19 @@ import { posts, services } from '~/lib/content';
 import { seo } from '~/lib/seo';
 import { site } from '~/config/site';
 
+/**
+ * Section copy lives in `app/content/*.json`, not in this file.
+ *
+ * The platform edits a section by rewriting its content file against the
+ * fields the manifest declares — no code is generated, so an edit cannot fail
+ * to compile. Keeping the words here would put them behind a JSX patch, which
+ * is the slow and fragile path.
+ */
+import hero from '~/content/home.hero.json';
+import approach from '~/content/home.approach.json';
+import faq from '~/content/home.faq.json';
+import cta from '~/content/home.cta.json';
+
 export function meta(_: Route.MetaArgs) {
   return seo({
     title: site.name,
@@ -17,38 +30,19 @@ export function meta(_: Route.MetaArgs) {
   });
 }
 
-const faqs = [
-  {
-    question: 'How quickly can you start?',
-    answer:
-      'Usually within three to four weeks. Discovery can often begin sooner, since it runs alongside whatever we are finishing.',
-  },
-  {
-    question: 'Do you work with existing codebases?',
-    answer:
-      'Yes, and most of our work is exactly that. We start with an audit so the plan is based on what the code actually does rather than on what the documentation claims.',
-  },
-  {
-    question: 'Who owns the work?',
-    answer:
-      'You do, entirely. Everything lives in your repositories and your accounts from the first commit, and there is nothing to transfer at the end.',
-  },
-  {
-    question: 'What happens after launch?',
-    answer:
-      'Every project includes thirty days of support. After that, teams either take it in-house with the handover documentation or move onto a retained engagement.',
-  },
-];
-
 export default function Home() {
   return (
     <>
+      {/* `eyebrow` and `description` are deliberately absent from the shipped
+          content file so a freshly built site shows the customer's own brand,
+          which the applier writes into `site`. Once an edit regenerates this
+          section the file carries them and wins. */}
       <Hero
-        eyebrow={site.tagline}
-        title="Design and engineering for businesses that need the work to actually ship"
-        description={site.description}
-        primaryAction={{ label: 'Start a project', to: '/contact' }}
-        secondaryAction={{ label: 'See our services', to: '/services' }}
+        title={hero.title}
+        eyebrow={hero.eyebrow ?? site.tagline}
+        description={hero.description ?? site.description}
+        primaryAction={hero.primaryAction}
+        secondaryAction={hero.secondaryAction}
       />
 
       <Section>
@@ -60,30 +54,14 @@ export default function Home() {
         <ServiceGrid services={services} />
       </Section>
 
-      <Section tone="muted">
+      <Section tone="muted" data-section="section.approach">
         <SectionHeading
-          eyebrow="How we work"
-          title="Small team, short feedback loops, no surprises"
-          description="You work with the people doing the work. There is no account layer between you and the team, and nothing is presented for the first time at the end."
+          eyebrow={approach.eyebrow}
+          title={approach.title}
+          description={approach.description}
         />
         <dl className="mt-12 grid gap-8 sm:grid-cols-3">
-          {[
-            {
-              term: 'Scoped before started',
-              detail:
-                'Every engagement begins with a written scope and a fixed price for that scope. Changes are re-scoped in the open, not absorbed silently.',
-            },
-            {
-              term: 'Shipped weekly',
-              detail:
-                'Work goes to a preview environment every week. You see progress on the real thing rather than in a status document.',
-            },
-            {
-              term: 'Handed over properly',
-              detail:
-                'You get documentation, a walkthrough and thirty days of support. The goal is that you do not need us afterwards.',
-            },
-          ].map((item) => (
+          {approach.items.map((item) => (
             <div key={item.term}>
               <dt className="font-heading text-lg font-semibold">{item.term}</dt>
               <dd className="mt-2 text-muted-foreground text-pretty">{item.detail}</dd>
@@ -101,12 +79,12 @@ export default function Home() {
         <PostList posts={posts.slice(0, 3)} />
       </Section>
 
-      <Section width="narrow" tone="muted">
-        <SectionHeading align="center" eyebrow="Questions" title="Things people ask first" />
-        <Faq entries={faqs} />
+      <Section width="narrow" tone="muted" data-section="section.faq">
+        <SectionHeading align="center" eyebrow={faq.eyebrow} title={faq.title} />
+        <Faq entries={faq.entries} />
       </Section>
 
-      <CallToAction />
+      <CallToAction title={cta.title} description={cta.description} action={cta.action} />
     </>
   );
 }

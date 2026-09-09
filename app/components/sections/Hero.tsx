@@ -18,7 +18,7 @@ export function Hero({
   secondaryAction?: { label: string; to: string };
 }) {
   return (
-    <section className="border-b bg-gradient-to-b from-accent/60 to-background">
+    <section data-section="section.hero" className="border-b bg-gradient-to-b from-accent/60 to-background">
       <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
         <div className="max-w-3xl">
           {eyebrow ? (

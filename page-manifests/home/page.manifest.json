@@ -11,13 +11,20 @@
     "posts"
   ],
   "componentDependencies": [
-    "app/components/sections/Hero.tsx"
+    "app/components/sections/Hero.tsx",
+    "app/content/home.hero.json",
+    "app/content/home.approach.json",
+    "app/content/home.faq.json",
+    "app/content/home.cta.json"
   ],
   "editableSections": [
     "home.content",
     "design.tokens",
     "section.hero",
-    "site.brand"
+    "site.brand",
+    "section.approach",
+    "section.faq",
+    "section.cta"
   ],
   "allowedOperations": [
     "UPDATE_CONTENT",

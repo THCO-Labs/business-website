@@ -12,7 +12,7 @@ export function CallToAction({
   action?: { label: string; to: string };
 }) {
   return (
-    <section className="border-b bg-foreground text-background last:border-b-0">
+    <section data-section="section.cta" className="border-b bg-foreground text-background last:border-b-0">
       <div className="mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-16 sm:flex-row sm:items-center sm:justify-between sm:py-20">
         <div className="max-w-xl">
           <h2 className="font-heading text-2xl font-semibold tracking-tight text-balance sm:text-3xl">
