@@ -1,0 +1,44 @@
+{
+  "plans": [
+    {
+      "name": "Audit",
+      "price": "£3,500",
+      "cadence": "one-off",
+      "summary": "Find out what is actually wrong before committing to a build.",
+      "features": [
+        "Performance and accessibility review",
+        "Search health report",
+        "Costed, prioritised backlog",
+        "Ninety-minute findings session"
+      ],
+      "highlighted": false
+    },
+    {
+      "name": "Project",
+      "price": "£18,000",
+      "cadence": "from, per project",
+      "summary": "A defined piece of work, scoped and delivered end to end.",
+      "features": [
+        "Discovery and scoping",
+        "Design and build",
+        "Preview environments",
+        "Handover and documentation",
+        "Thirty days of post-launch support"
+      ],
+      "highlighted": true
+    },
+    {
+      "name": "Retained",
+      "price": "£6,500",
+      "cadence": "per month",
+      "summary": "Ongoing design and engineering capacity for a roadmap that keeps moving.",
+      "features": [
+        "Dedicated team days each month",
+        "Rolling roadmap",
+        "Priority response",
+        "Quarterly technical review"
+      ],
+      "highlighted": false
+    }
+  ]
+}

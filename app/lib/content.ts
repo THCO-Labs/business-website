@@ -1,10 +1,18 @@
 /**
  * The site's content.
  *
- * A marketing site has no database — its copy is the product. Keeping content
- * in one typed module means the builder edits data rather than JSX, and every
- * route stays a thin presentation layer over these records.
+ * A marketing site has no database — its copy is the product. The records live
+ * in `app/content/*.json` rather than in this module so that editing them is a
+ * validated data write against the fields the manifest declares, not a patch to
+ * TypeScript. This module stays the typed accessor every route reads, so the
+ * routes did not have to change.
+ *
+ * `slug` is a route key, not copy: `/services/:slug` resolves through it, and
+ * the manifest marks it non-generative so rewriting a service's words can never
+ * break its URL or the links pointing at it.
  */
+import servicesContent from '~/content/services.json';
+import plansContent from '~/content/plans.json';
 
 export interface Service {
   slug: string;
@@ -34,44 +42,7 @@ export interface Plan {
   highlighted: boolean;
 }
 
-export const services: Service[] = [
-  {
-    slug: 'product-design',
-    title: 'Product design',
-    summary: 'Interface and interaction design grounded in how people actually use the thing.',
-    description:
-      'We design the screens, states and flows your product needs, then hand over a component library your engineers can build against without guessing. Research is proportional: enough to be sure, never so much that nothing ships.',
-    outcomes: ['Design system and component library', 'Annotated end-to-end flows', 'Prototype for user testing'],
-    startingAt: '£12,000',
-  },
-  {
-    slug: 'web-engineering',
-    title: 'Web engineering',
-    summary: 'Fast, accessible, server-rendered websites and applications that hold up under load.',
-    description:
-      'We build with the boring parts done properly: server rendering for crawlability, real accessibility, sensible caching and a deploy pipeline your team can operate. No framework tourism, and nothing you cannot maintain after we leave.',
-    outcomes: ['Server-rendered application', 'CI pipeline and preview environments', 'Handover documentation'],
-    startingAt: '£18,000',
-  },
-  {
-    slug: 'brand-identity',
-    title: 'Brand identity',
-    summary: 'A visual system that survives contact with a real product, not just a logo sheet.',
-    description:
-      'Identity work that anticipates where it will actually be used — small on a phone, badly reproduced on a form, alongside copy nobody signed off. You get the marks, the type scale, the palette and the rules for using them.',
-    outcomes: ['Logo suite and usage rules', 'Type scale and palette', 'Applied templates'],
-    startingAt: '£8,000',
-  },
-  {
-    slug: 'technical-audit',
-    title: 'Technical audit',
-    summary: 'An honest read on performance, accessibility and search health, with a costed plan.',
-    description:
-      'We measure what your site does today, explain which problems actually cost you money, and give you a prioritised plan with effort estimates. You can hand the plan to any team — it is not a pitch for more of our time.',
-    outcomes: ['Performance and accessibility report', 'Search health review', 'Prioritised, costed backlog'],
-    startingAt: '£3,500',
-  },
-];
+export const services: Service[] = servicesContent.services;
 
 export const posts: Post[] = [
   {
@@ -118,48 +89,7 @@ export const posts: Post[] = [
   },
 ];
 
-export const plans: Plan[] = [
-  {
-    name: 'Audit',
-    price: '£3,500',
-    cadence: 'one-off',
-    summary: 'Find out what is actually wrong before committing to a build.',
-    features: [
-      'Performance and accessibility review',
-      'Search health report',
-      'Costed, prioritised backlog',
-      'Ninety-minute findings session',
-    ],
-    highlighted: false,
-  },
-  {
-    name: 'Project',
-    price: '£18,000',
-    cadence: 'from, per project',
-    summary: 'A defined piece of work, scoped and delivered end to end.',
-    features: [
-      'Discovery and scoping',
-      'Design and build',
-      'Preview environments',
-      'Handover and documentation',
-      'Thirty days of post-launch support',
-    ],
-    highlighted: true,
-  },
-  {
-    name: 'Retained',
-    price: '£6,500',
-    cadence: 'per month',
-    summary: 'Ongoing design and engineering capacity for a roadmap that keeps moving.',
-    features: [
-      'Dedicated team days each month',
-      'Rolling roadmap',
-      'Priority response',
-      'Quarterly technical review',
-    ],
-    highlighted: false,
-  },
-];
+export const plans: Plan[] = plansContent.plans;
 
 export function serviceBySlug(slug: string): Service | undefined {
   return services.find((service) => service.slug === slug);

@@ -7,7 +7,10 @@
   "sourceEntry": "app/lib/content.ts",
   "access": "public",
   "dataDependencies": [],
-  "componentDependencies": [],
+  "componentDependencies": [
+    "app/content/services.json",
+    "app/content/plans.json"
+  ],
   "editableSections": [
     "content.services",
     "content.posts",
@@ -15,6 +18,7 @@
   ],
   "allowedOperations": [
     "UPDATE_CONTENT",
+    "REGENERATE_CONTENT",
     "UPDATE_DESIGN_TOKEN",
     "CONFIGURE_COMPONENT"
   ],

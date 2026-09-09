@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "templateSource": "business-website",
-  "templateVersion": "1.1.0",
+  "templateVersion": "1.2.0",
   "framework": "react-router-7",
   "runtime": {
     "packageManager": "npm",
@@ -459,34 +459,71 @@
     },
     {
       "id": "content.services",
-      "kind": "CONTENT",
+      "kind": "SECTION",
       "label": "Services",
       "sourcePath": "app/lib/content.ts",
+      "contentPath": "app/content/services.json",
       "selector": "services",
       "operations": [
         "UPDATE_CONTENT",
+        "REGENERATE_CONTENT",
         "REORDER_SECTIONS"
       ],
       "fields": [
         {
-          "path": "title",
-          "label": "Service name",
-          "type": "text"
-        },
-        {
-          "path": "summary",
-          "label": "One-line summary",
-          "type": "text"
-        },
-        {
-          "path": "description",
-          "label": "Full description",
-          "type": "rich_text"
-        },
-        {
-          "path": "startingAt",
-          "label": "Starting price",
-          "type": "text"
+          "path": "services",
+          "label": "Service",
+          "type": "list",
+          "required": true,
+          "min": 2,
+          "max": 6,
+          "itemFields": [
+            {
+              "path": "slug",
+              "label": "URL slug",
+              "type": "text",
+              "maxLength": 60,
+              "required": true,
+              "generative": false
+            },
+            {
+              "path": "title",
+              "label": "Service name",
+              "type": "text",
+              "maxLength": 40,
+              "required": true
+            },
+            {
+              "path": "summary",
+              "label": "One-line summary",
+              "type": "text",
+              "maxLength": 120,
+              "required": true
+            },
+            {
+              "path": "description",
+              "label": "Full description",
+              "type": "rich_text",
+              "maxLength": 400,
+              "required": true
+            },
+            {
+              "path": "startingAt",
+              "label": "Starting price",
+              "type": "text",
+              "maxLength": 20,
+              "required": true
+            },
+            {
+              "path": "outcomes",
+              "label": "Outcome",
+              "type": "list",
+              "required": true,
+              "min": 2,
+              "max": 5,
+              "maxLength": 70
+            }
+          ]
         }
       ]
     },
@@ -530,44 +567,68 @@
     },
     {
       "id": "content.plans",
-      "kind": "CONTENT",
+      "kind": "SECTION",
       "label": "Pricing plans",
       "sourcePath": "app/lib/content.ts",
+      "contentPath": "app/content/plans.json",
       "selector": "plans",
       "operations": [
         "UPDATE_CONTENT",
+        "REGENERATE_CONTENT",
         "REORDER_SECTIONS"
       ],
       "fields": [
         {
-          "path": "name",
-          "label": "Plan name",
-          "type": "text"
-        },
-        {
-          "path": "price",
-          "label": "Price",
-          "type": "text"
-        },
-        {
-          "path": "cadence",
-          "label": "Billing cadence",
-          "type": "text"
-        },
-        {
-          "path": "summary",
-          "label": "Summary",
-          "type": "text"
-        },
-        {
-          "path": "features",
-          "label": "Included features",
-          "type": "json"
-        },
-        {
-          "path": "highlighted",
-          "label": "Highlight this plan",
-          "type": "boolean"
+          "path": "plans",
+          "label": "Plan",
+          "type": "list",
+          "required": true,
+          "min": 2,
+          "max": 4,
+          "itemFields": [
+            {
+              "path": "name",
+              "label": "Plan name",
+              "type": "text",
+              "maxLength": 30,
+              "required": true
+            },
+            {
+              "path": "price",
+              "label": "Price",
+              "type": "text",
+              "maxLength": 20,
+              "required": true
+            },
+            {
+              "path": "cadence",
+              "label": "Billing cadence",
+              "type": "text",
+              "maxLength": 30,
+              "required": true
+            },
+            {
+              "path": "summary",
+              "label": "Summary",
+              "type": "text",
+              "maxLength": 140,
+              "required": true
+            },
+            {
+              "path": "highlighted",
+              "label": "Highlight this plan",
+              "type": "boolean"
+            },
+            {
+              "path": "features",
+              "label": "Feature",
+              "type": "list",
+              "required": true,
+              "min": 3,
+              "max": 7,
+              "maxLength": 70
+            }
+          ]
         }
       ]
     },

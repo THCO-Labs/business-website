@@ -1,0 +1,52 @@
+{
+  "services": [
+    {
+      "slug": "product-design",
+      "title": "Product design",
+      "summary": "Interface and interaction design grounded in how people actually use the thing.",
+      "description": "We design the screens, states and flows your product needs, then hand over a component library your engineers can build against without guessing. Research is proportional: enough to be sure, never so much that nothing ships.",
+      "outcomes": [
+        "Design system and component library",
+        "Annotated end-to-end flows",
+        "Prototype for user testing"
+      ],
+      "startingAt": "£12,000"
+    },
+    {
+      "slug": "web-engineering",
+      "title": "Web engineering",
+      "summary": "Fast, accessible, server-rendered websites and applications that hold up under load.",
+      "description": "We build with the boring parts done properly: server rendering for crawlability, real accessibility, sensible caching and a deploy pipeline your team can operate. No framework tourism, and nothing you cannot maintain after we leave.",
+      "outcomes": [
+        "Server-rendered application",
+        "CI pipeline and preview environments",
+        "Handover documentation"
+      ],
+      "startingAt": "£18,000"
+    },
+    {
+      "slug": "brand-identity",
+      "title": "Brand identity",
+      "summary": "A visual system that survives contact with a real product, not just a logo sheet.",
+      "description": "Identity work that anticipates where it will actually be used — small on a phone, badly reproduced on a form, alongside copy nobody signed off. You get the marks, the type scale, the palette and the rules for using them.",
+      "outcomes": [
+        "Logo suite and usage rules",
+        "Type scale and palette",
+        "Applied templates"
+      ],
+      "startingAt": "£8,000"
+    },
+    {
+      "slug": "technical-audit",
+      "title": "Technical audit",
+      "summary": "An honest read on performance, accessibility and search health, with a costed plan.",
+      "description": "We measure what your site does today, explain which problems actually cost you money, and give you a prioritised plan with effort estimates. You can hand the plan to any team — it is not a pitch for more of our time.",
+      "outcomes": [
+        "Performance and accessibility report",
+        "Search health review",
+        "Prioritised, costed backlog"
+      ],
+      "startingAt": "£3,500"
+    }
+  ]
+}
